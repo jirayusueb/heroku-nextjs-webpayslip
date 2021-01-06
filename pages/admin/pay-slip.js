@@ -34,6 +34,9 @@ const styles = {
     marginBottom: "3px",
     textDecoration: "none",
   },
+  input: {
+    display: "none",
+  },
 };
 
 const useStyles = makeStyles(styles);
@@ -43,29 +46,34 @@ function UserProfile() {
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
+        <GridItem xs={12} sm={12} md={12}>
           <Card>
             <CardHeader color="primary">
-              <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
-              <p className={classes.cardCategoryWhite}>Complete your profile</p>
+              <h4 className={classes.cardTitleWhite}>Pay Slip</h4>
+              <p className={classes.cardCategoryWhite}>ออกสลิปเงินเดือน</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={5}>
+                <GridItem xs={12} sm={12} md={4}>
+                  <h3>บัญชี</h3>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="Company (disabled)"
-                    id="company-disabled"
+                    labelText="ชื่อ-สกุล"
+                    id="username"
                     formControlProps={{
                       fullWidth: true,
                     }}
-                    inputProps={{
-                      disabled: true,
+                  />
+                  <CustomInput
+                    labelText="ตำแหน่ง"
+                    id="username"
+                    formControlProps={{
+                      fullWidth: true,
                     }}
                   />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
                   <CustomInput
-                    labelText="Username"
+                    labelText="เลขบัญชี"
                     id="username"
                     formControlProps={{
                       fullWidth: true,
@@ -73,28 +81,64 @@ function UserProfile() {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Email address"
-                    id="email-address"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
+                  <input
+                    accept="image/*"
+                    className={classes.input}
+                    id="contained-button-file"
+                    multiple
+                    type="file"
                   />
+                  <label htmlFor="contained-button-file">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      component="span"
+                    >
+                      Upload
+                    </Button>
+                  </label>
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={12} sm={12} md={4}>
+                  <h3>การเงิน</h3>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
                   <CustomInput
-                    labelText="First Name"
-                    id="first-name"
+                    labelText="เงินเดือน"
+                    id="last-name"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                  />
+                  <CustomInput
+                    labelText="ค่าพิเศษ"
+                    id="last-name"
                     formControlProps={{
                       fullWidth: true,
                     }}
                   />
                 </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={12} sm={12} md={2}>
                   <CustomInput
-                    labelText="Last Name"
+                    labelText="ค่าคอมมิชชั่น(%)"
+                    id="last-name"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                  />
+                  <CustomInput
+                    disable
+                    labelText="รวม"
+                    id="last-name"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
+                  <CustomInput
+                    labelText="ค่าประกันสังคม"
                     id="last-name"
                     formControlProps={{
                       fullWidth: true,
@@ -102,76 +146,18 @@ function UserProfile() {
                   />
                 </GridItem>
               </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="City"
-                    id="city"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Country"
-                    id="country"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Postal Code"
-                    id="postal-code"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
-                  <CustomInput
-                    labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                    id="about-me"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 5,
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
             </CardBody>
-            <CardFooter>
-              <Button color="primary">Update Profile</Button>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <Card profile>
-            <CardAvatar profile>
-              <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                <img src={avatar} alt="..." />
-              </a>
-            </CardAvatar>
-            <CardBody profile>
-              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
-              <p className={classes.description}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-              <Button color="primary" round>
-                Follow
-              </Button>
-            </CardBody>
+            <GridContainer xs={12} sm={12} md={12}>
+              <GridItem
+                container
+                direction="row"
+                justify="flex-end"
+                alignItems="flex-start"
+              >
+                <Button>ล้าง</Button>
+                <Button color="primary">พิมพ์</Button>
+              </GridItem>
+            </GridContainer>
           </Card>
         </GridItem>
       </GridContainer>
