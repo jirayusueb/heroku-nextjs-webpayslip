@@ -65,7 +65,7 @@ const container = {
 };
 
 const defaultFont = {
-  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Prompt", "Helvetica", "Arial", sans-serif',
   fontWeight: "300",
   lineHeight: "1.5em",
 };
@@ -247,7 +247,7 @@ const title = {
   marginTop: "30px",
   marginBottom: "25px",
   minHeight: "32px",
-  fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+  fontFamily: "'Prompt', 'Helvetica', 'Arial', sans-serif",
   "& small": {
     color: grayColor[1],
     fontWeight: "400",
